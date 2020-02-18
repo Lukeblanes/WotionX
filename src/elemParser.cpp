@@ -63,7 +63,7 @@ int newState(char currentChar, int currentState)
         }
         case 13: {
             // appart from uri we add space :
-            std::string allowedChars = "./_~-abcdefghijklmnopqrstuvwzyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 :";
+            std::string allowedChars = "./_~-abcdefghijklmnopqrstuvwzyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 :'";
             if( allowedChars.find(currentChar) != std::string::npos) returnNewState = 13;
             else if (currentChar == ']') returnNewState = 15;
             else if( currentChar == '#' ) returnNewState = 34;
@@ -123,7 +123,7 @@ int newState(char currentChar, int currentState)
         }
         case 33: {
             // Unreserved URI allowed Chars
-            std::string allowedChars = "./_~-abcdefghijklmnopqrstuvwzyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            std::string allowedChars = "./_~-abcdefghijklmnopqrstuvwzyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?=&";
             if( allowedChars.find(currentChar) != std::string::npos) returnNewState = 33;
             else if( currentChar == ')' ) returnNewState = 18; // END_LINK_MD
             else returnNewState = -1; // END_DEFAULT
